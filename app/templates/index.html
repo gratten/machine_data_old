@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Machine Data Page</h1>
+    <h1>Machines</h1>
+    <hr>
+    {% for machine in machines %}
+    <p>
+    {{ machine.project }} -
+    {{ machine.serialnum }} -
+    {{ machine.customer }} -
+    {{ machine.description }}
+    </p>
+    {% endfor %}
 {% endblock %}
