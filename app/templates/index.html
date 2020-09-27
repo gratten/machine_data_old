@@ -1,31 +1,12 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block app_content %}
     <h1>Machines</h1>
     <hr>
     {% for machine in machines %}
-    <p>
-        <b>
-        {{ machine.project }} -
-        {{ machine.serialnum }} -
-        {{ machine.customer }} -
-        {{ machine.description }}
-        </b>
-
+        {% include '_data_machine.html' %}
         {% for kit in machine.kits.all() %}
-        <p>
-            {{ kit.project }} :
-            {{ kit.length }} x
-            {{ kit.width }} x
-            {{ kit.depth }}
-        </p>
+            {% include '_data_kit.html' %}
         {% endfor %}
-
-
-<!--    {{ machine.project }} - -->
-<!--    {{ machine.serialnum }} - -->
-<!--    {{ machine.customer }} - -->
-<!--    {{ machine.description }}-->
-    </p>
     {% endfor %}
 {% endblock %}
