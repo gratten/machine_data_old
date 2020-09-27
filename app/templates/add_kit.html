@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Add kit</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.project.label }}<br>
+            {{ form.project(size=32) }}
+        </p>
+        <p>
+            {{ form.serialnum.label }}<br>
+            {{ form.serialnum }}
+        </p>
+        <p>
+            {{ form.customer.label }}<br>
+            {{ form.customer(size=32) }}
+        </p>
+        <p>
+            {{ form.length.label }}<br>
+            {{ form.length(size=32) }}
+        </p>
+        <p>
+            {{ form.width.label }}<br>
+            {{ form.width(size=32) }}
+        </p>
+        <p>
+            {{ form.depth.label }}<br>
+            {{ form.depth(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

@@ -13,10 +13,12 @@ class Machine(db.Model):
 
 class Kit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    project = db.Column(db.String(8), index=True)
+    serialnum = db.Column(db.Integer, db.ForeignKey('machine.serialnum'))
+    customer = db.Column(db.String(64))
     length = db.Column(db.String(8))
     width = db.Column(db.String(8))
     depth = db.Column(db.String(8))
-    machine_id = db.Column(db.Integer, db.ForeignKey('machine.id'))
 
     def __repr__(self):
         return f'<Kit {self.length}x{self.width}x{self.depth}>'

@@ -5,10 +5,27 @@
     <hr>
     {% for machine in machines %}
     <p>
-    {{ machine.project }} -
-    {{ machine.serialnum }} -
-    {{ machine.customer }} -
-    {{ machine.description }}
+        <b>
+        {{ machine.project }} -
+        {{ machine.serialnum }} -
+        {{ machine.customer }} -
+        {{ machine.description }}
+        </b>
+
+        {% for kit in machine.kits.all() %}
+        <p>
+            {{ kit.project }} :
+            {{ kit.length }} x
+            {{ kit.width }} x
+            {{ kit.depth }}
+        </p>
+        {% endfor %}
+
+
+<!--    {{ machine.project }} - -->
+<!--    {{ machine.serialnum }} - -->
+<!--    {{ machine.customer }} - -->
+<!--    {{ machine.description }}-->
     </p>
     {% endfor %}
 {% endblock %}
